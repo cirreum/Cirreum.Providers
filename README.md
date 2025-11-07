@@ -237,4 +237,4 @@ When implementing a new provider:
 
 ---
 
-**Cirreum Foundation Framework** - Building consistent, enterprise-grade applications
+**Cirreum Foundation Framework** - Layered simplicity for modern .NET
