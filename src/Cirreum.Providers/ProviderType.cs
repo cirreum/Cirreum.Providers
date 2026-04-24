@@ -43,5 +43,12 @@ public enum ProviderType {
 	/// Represents service providers that enable delivering messages via a communication channel
 	/// (e.g., SendGrid, Twilio) for applications built on the framework.
 	/// </summary>
-	Communications = 6
+	Communications = 6,
+	/// <summary>
+	/// Represents service providers that enable identity integrations via identity-provider
+	/// callbacks — for example user provisioning via a webhook/HTTP Connector from Descope or
+	/// Auth0, or via the Entra External ID custom-claims extension — for applications built
+	/// on the framework.
+	/// </summary>
+	Identity = 7
 }

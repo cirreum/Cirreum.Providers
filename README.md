@@ -21,7 +21,8 @@ Cirreum.Providers establishes a standardized approach for integrating third-part
 
 The library defines several core service categories through the `ProviderType` enum:
 
-- **Authorization** - Identity and access management providers (Azure Entra, Okta, etc.)
+- **Identity** - Identity setup and configuring of user provisioning endpoints
+- **Authorization** - AuthZ and access management providers (Azure Entra, Okta, etc.)
 - **Secrets** - Remote configuration and secrets management (Azure KeyVault, AWS Secrets Manager, HashiCorp Vault)
 - **Messaging** - Distributed messaging systems (Azure Service Bus, AWS SQS, RabbitMQ)
 - **Storage** - Cloud storage services (Azure Blob Storage, AWS S3)
@@ -237,4 +238,5 @@ When implementing a new provider:
 
 ---
 
-**Cirreum Foundation Framework** - Layered simplicity for modern .NET
+**Cirreum Foundation Framework**  
+_Layered simplicity for modern .NET_
