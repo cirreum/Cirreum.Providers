@@ -21,6 +21,7 @@ Cirreum.Providers establishes a standardized approach for integrating third-part
 
 The library defines several core service categories through the `ProviderType` enum:
 
+- **Invocation** -  Inbound invocation sources that deliver work into the framework's pipeline
 - **Identity** - Identity setup and configuring of user provisioning endpoints
 - **Authorization** - AuthZ and access management providers (Azure Entra, Okta, etc.)
 - **Secrets** - Remote configuration and secrets management (Azure KeyVault, AWS Secrets Manager, HashiCorp Vault)
