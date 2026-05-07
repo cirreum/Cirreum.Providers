@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-05-06
+
 ### Fixed
 
 - **Renamed `ProviderType.Connection` → `ProviderType.Invocation`** (value `8` unchanged). Reflects ADR-0002's framing: each provider in this family is a *source* of invocations into the framework (HTTP, SignalR, WebSockets, gRPC, queue triggers, …); transports deliver/manifest invocations through the unified `IInvocationContext` seam. "Connection" was too narrow — it fit the long-lived sub-state but not the family. **Safe rename:** the value was added in 1.1.0 specifically for the new package family that has not yet shipped, so no consumer references `ProviderType.Connection` in published code.
