@@ -52,10 +52,10 @@ public enum ProviderType {
 	/// </summary>
 	Identity = 7,
 	/// <summary>
-	/// Represents service providers that enable inbound dispatch into the framework via
-	/// connection-oriented and stateless dispatch shapes (e.g., HTTP, SignalR, raw WebSockets,
-	/// gRPC) for applications built on the framework. Each impl populates the unified
-	/// IInvocationContext seam at its inbound boundary.
+	/// Represents service providers that bring inbound invocations into the framework — each
+	/// is a source of invocations (e.g., HTTP, SignalR, raw WebSockets, gRPC, queue triggers)
+	/// that delivers or manifests work into the framework's pipeline. Each impl populates the
+	/// unified IInvocationContext seam at its inbound boundary.
 	/// </summary>
-	Connection = 8
+	Invocation = 8
 }
