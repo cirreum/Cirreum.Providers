@@ -57,5 +57,12 @@ public enum ProviderType {
 	/// that delivers or manifests work into the framework's pipeline. Each impl populates the
 	/// unified IInvocationContext seam at its inbound boundary.
 	/// </summary>
-	Invocation = 8
+	Invocation = 8,
+	/// <summary>
+	/// Represents service providers that prove caller identity — authentication schemes such
+	/// as ApiKey, SignedRequest, SessionTicket, JWT bearer (OIDC / Entra / external IdPs).
+	/// Distinguished from <see cref="Authorization"/>, which decides what an authenticated
+	/// caller may do. Recognized as a first-class pillar per ADR-0008.
+	/// </summary>
+	Authentication = 9
 }
