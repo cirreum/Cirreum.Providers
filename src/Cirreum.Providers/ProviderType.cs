@@ -62,7 +62,7 @@ public enum ProviderType {
 	/// Represents service providers that prove caller identity — authentication schemes such
 	/// as ApiKey, SignedRequest, SessionTicket, JWT bearer (OIDC / Entra / external IdPs).
 	/// Distinguished from <see cref="Authorization"/>, which decides what an authenticated
-	/// caller may do. Recognized as a first-class pillar per ADR-0008.
+	/// caller may do. Recognized as a first-class pillar.
 	/// </summary>
 	Authentication = 9
 }
