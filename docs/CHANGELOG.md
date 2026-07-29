@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `CredentialMode` — a vendor-neutral credential taxonomy for provider instances that authenticate
+  with a platform identity rather than a connection string or key: `Default` (the platform's default
+  credential chain), `ManagedIdentity` (the platform-assigned workload identity — deterministic, no
+  chain probing), and `Developer` (developer tooling credentials only, authenticating as the
+  signed-in developer for local runs against real services). Provider implementations map each mode
+  to their platform's credential type.
+- `CredentialSettings` — configuration-bindable settings carrying the selected `Mode` plus an
+  optional `IdentityId` that selects a specific platform identity when the host has more than one
+  (for example, Azure providers resolve it as a user-assigned managed identity client ID; other
+  platforms document their own mapping). Surfaced by the provider-family instance settings bases as
+  a nested `Credential` block in a coordinated downstream wave; providers that only support key- or
+  connection-string-based access do not consume it.
+
 ## [1.2.3] - 2026-07-18
 
 ### Updated

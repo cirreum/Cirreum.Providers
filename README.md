@@ -111,6 +111,37 @@ The `ProviderName` follows established conventions:
 - **Service-specific**: Uses a descriptive name for the implementation
   - Example: `AzureBlobs` for Azure Blob Storage
 
+## Credential Configuration
+
+Provider instances that authenticate with a **platform identity** (a managed or workload identity) rather than a connection string or key share a vendor-neutral credential vocabulary, so every provider family exposes the same configuration shape.
+
+### CredentialMode
+
+- **Default** — the platform's default credential chain, trying each available credential source in order (environment, workload identity, developer tooling)
+- **ManagedIdentity** — the platform-assigned workload identity directly, with no chain probing; deterministic, and typically enables retry behavior the default chain cannot offer
+- **Developer** — local developer tooling credentials only (IDE, CLI, or shell sign-in), authenticating as the signed-in developer; intended for local runs against real services, not for deployed environments
+
+### CredentialSettings
+
+Carries the selected `Mode` plus an optional `IdentityId` that selects a specific platform identity when the host has more than one. Instance settings surface it as a nested `Credential` block:
+
+```json
+{
+  "ProviderName": {
+    "Instances": {
+      "Primary": {
+        "Credential": {
+          "Mode": "ManagedIdentity",
+          "IdentityId": "<platform identity id>"
+        }
+      }
+    }
+  }
+}
+```
+
+The meaning of each value is mapped by the provider implementation — for example, Azure providers resolve `IdentityId` as a user-assigned managed identity client ID. `IdentityId` is ignored by `Developer`. Providers that only support key- or connection-string-based access do not consume these settings.
+
 ## Service Collection Extensions
 
 The library provides extension methods for tracking provider registrations:
